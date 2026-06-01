@@ -1,0 +1,26 @@
+// Funcion para buscar un pokemon
+async function buscarPokemon(numero) {
+
+    // revisar si el numero es mayor a 0
+    if(numero > 0){
+
+        // guardar la respuesta de la api
+        let respuesta = await fetch("https://pokeapi.co/api/v2/pokemon/" + numero);
+
+        // convertir los datos
+        let pokemon = await respuesta.json();
+
+        // mostrar informacion
+        console.log("Nombre del pokemon: " + pokemon.name);
+        console.log("Id del pokemon: " + pokemon.id);
+
+    }else{
+
+        console.log("Escribe un numero mayor a 0");
+
+    }
+
+}
+
+// llamar la funcion
+buscarPokemon(7)
